@@ -13,22 +13,26 @@
 	</properties>
 
 	<distributionManagement>
-		<!-- override from command line to deploy to local dir, eg: mvn deploy 
-			-DaltDeploymentRepository=repo::default::file:../repo/releases -->
-		<repository>
-			<id>repo</id>
-			<url>https://raw.github.com/casperds/casperdatasets/develop/repo/releases/</url>
-		</repository>
-
-		<!-- override from command line to deploy to local dir, eg: mvn deploy 
-			-DaltDeploymentRepository=snapshot-repo::default::file:../repo/snapshots -->
-		<snapshotRepository>
-			<id>snapshot-repo</id>
-			<url>https://raw.github.com/casperds/casperdatasets/develop/repo/snapshots/</url>
-		</snapshotRepository>
+	  <repository>
+	    <id>infochimps.releases</id>
+	    <name>Infochimps Internal Repository</name>
+	    <url>s3://srp-7.0/maven-s3p/releases</url>
+	  </repository>
+	  <snapshotRepository>
+	    <id>infochimps.snapshots</id>
+	    <name>Infochimps Internal Snapshot Repository</name>
+	    <url>s3://srp-7.0/maven-s3p/snapshots</url>
+	  </snapshotRepository>
 	</distributionManagement>
 
 	<build>
+	  <extensions>
+	    <extension>
+              <groupId>org.kuali.maven.wagons</groupId>
+              <artifactId>maven-s3-wagon</artifactId>
+              <version>1.0.23</version>
+	    </extension>
+	  </extensions>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -70,6 +74,16 @@
 	</build>
 
 	<repositories>
+	  <repository>
+	    <id>infochimps.releases</id>
+	    <name>Infochimps Internal Repository</name>
+	    <url>https://s3.amazonaws.com/srp-7.0/maven-s3p/releases</url>
+	  </repository>
+	  <repository>
+	    <id>infochimps.snapshots</id>
+	    <name>Infochimps Internal Repository</name>
+	    <url>https://s3.amazonaws.com/srp-7.0/maven-s3p/snapshots</url>
+	  </repository>
 		<repository>
 			<id>rmt-repo</id>
 			<url>http://readmytables.googlecode.com/git/repo/</url>
@@ -111,4 +125,13 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<pluginRepositories>
+	  <!-- kuali: for maven-s3-wagon -->
+	  <pluginRepository>
+	    <id>kuali.release</id>
+	    <name>Kauli Release Repository</name>
+	    <url>https://s3.amazonaws.com/maven.kuali.org/release</url>
+	  </pluginRepository>
+	</pluginRepositories>
 </project>
