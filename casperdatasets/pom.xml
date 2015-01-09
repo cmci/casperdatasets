@@ -43,7 +43,7 @@ The Casper Datasets framework allows a programmer to define a typed, n-dimension
 	    <extension>
               <groupId>org.kuali.maven.wagons</groupId>
               <artifactId>maven-s3-wagon</artifactId>
-              <version>1.2.1</version>
+              <version>1.0.23</version>
 	    </extension>
 	  </extensions>
 
