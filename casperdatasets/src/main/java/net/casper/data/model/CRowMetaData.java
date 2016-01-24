@@ -9,6 +9,7 @@ package net.casper.data.model;
 import java.io.*;
 import java.util.*;
 import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 
 
 /**
@@ -591,5 +592,13 @@ public class CRowMetaData
 		return false;
 	}
 	
+	// java.sql.Wrapper method implementation, java 1.6 =<
+	public boolean isWrapperFor(java.lang.Class<?> ResultSetMetaData){
+		return false;
+	}
+	// java.sql.Wrapper method implementation, java 1.6 =<
+	public <T> T unwrap(Class<T> iface) throws java.sql.SQLException {
+		return iface.cast(this);
+	}
 }
 
