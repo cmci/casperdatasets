@@ -1,6 +1,28 @@
 # Casperdatasets
 
-## Deployment
+## Updates: 20160125 (branch "simple")
+
+This is a branch based on the branch "ics_deploy". Previous code had a build-constraint on Java 1.5, but with this update the casperdatasets module can be build with java 1.8 and modern Maven (3.3.9). 
+
+To use it as a maven dependency, add the following repository in your pom.xml:
+
+	<repository>
+		<id>jitpack.io</id>
+		<url>https://jitpack.io</url>
+	</repository>
+	
+and add the dependency as follows.
+
+    <dependency>
+		<groupId>com.github.cmci.casperdatasets</groupId>
+		<artifactId>casperdatasets</artifactId>
+		<version>simple-SNAPSHOT</version>
+	</dependency>
+
+Other modules are not touched.
+
+
+## Deployment (branch "ics_deploy")
 
 Building casperdatasets is a bit tricky. The 'casperdatasets' artifact
 must be built with Maven 2.2.0, and Java 1.5. (The source version is
