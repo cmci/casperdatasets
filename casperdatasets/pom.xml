@@ -1,93 +1,100 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>net.casper</groupId>
+		<artifactId>casperds</artifactId>
+		<version>2.2.0-SNAPSHOT</version>
+	</parent>
+
 	<groupId>net.casper</groupId>
 	<artifactId>casperdatasets</artifactId>
 	<version>2.1.0</version>
-	<name>Casper Datasets</name>
+	<name>casperdatasets</name>
 	<url>https://github.com/casperds/casperdatasets</url>
 	<description>The Casper Datasets library is, in short, a memory-based dataset technology. 
 The Casper Datasets framework allows a programmer to define a typed, n-dimensional dataset, and allows simple sorting, filtering, and aggregation operations. </description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<JAVA_1_5_HOME>/opt/jdk1.5.0_22</JAVA_1_5_HOME>
+		<!--<JAVA_1_5_HOME>/opt/jdk1.5.0_22</JAVA_1_5_HOME>-->
 	</properties>
 
-	<!-- Infochimps s3 repository urls -->
-	<distributionManagement>
-	  <repository>
-	    <id>infochimps.releases</id>
-	    <name>Infochimps Internal Repository</name>
-	    <url>s3://srp-7.0/maven-s3p/releases</url>
-	  </repository>
-	  <snapshotRepository>
-	    <id>infochimps.snapshots</id>
-	    <name>Infochimps Internal Snapshot Repository</name>
-	    <url>s3://srp-7.0/maven-s3p/snapshots</url>
-	  </snapshotRepository>
-	</distributionManagement>
+   <!-- [> Infochimps s3 repository urls <]-->
+	<!--<distributionManagement>-->
+	  <!--<repository>-->
+		<!--<id>infochimps.releases</id>-->
+		<!--<name>Infochimps Internal Repository</name>-->
+		<!--<url>s3://srp-7.0/maven-s3p/releases</url>-->
+	  <!--</repository>-->
+	  <!--<snapshotRepository>-->
+		<!--<id>infochimps.snapshots</id>-->
+		<!--<name>Infochimps Internal Snapshot Repository</name>-->
+		<!--<url>s3://srp-7.0/maven-s3p/snapshots</url>-->
+	  <!--</snapshotRepository>-->
+	<!--</distributionManagement>-->
 
-	<pluginRepositories>
-	  <!-- kuali: for maven-s3-wagon -->
-	  <pluginRepository>
-	    <id>kuali.release</id>
-	    <name>Kauli Release Repository</name>
-	    <url>https://s3.amazonaws.com/maven.kuali.org/release</url>
-	  </pluginRepository>
+	<!--<pluginRepositories>-->
+	  <!--[> kuali: for maven-s3-wagon <]-->
+	  <!--<pluginRepository>-->
+		<!--<id>kuali.release</id>-->
+		<!--<name>Kauli Release Repository</name>-->
+		<!--<url>https://s3.amazonaws.com/maven.kuali.org/release</url>-->
+	  <!--</pluginRepository>-->
 
-	</pluginRepositories>
+	<!--</pluginRepositories>-->
 
-	<build>
-	  <extensions>
-	    <extension>
-              <groupId>org.kuali.maven.wagons</groupId>
-              <artifactId>maven-s3-wagon</artifactId>
-              <version>1.0.23</version>
-	    </extension>
-	  </extensions>
+   <!-- <build>-->
+   <!--[>   <extensions><]-->
+		<!--[><extension><]-->
+              <!--[><groupId>org.kuali.maven.wagons</groupId><]-->
+              <!--[><artifactId>maven-s3-wagon</artifactId><]-->
+              <!--[><version>1.0.23</version><]-->
+		<!--[></extension><]-->
+	  <!--[></extensions><]-->
 
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.4</source>
-					<target>1.4</target>
-					<fork>true</fork>
-					<compilerVersion>1.4</compilerVersion>
-					<executable>${JAVA_1_5_HOME}/bin/javac</executable>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.2</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.8.1</version>
-				<configuration>
-					<reportOutputDirectory>.</reportOutputDirectory>
-					<destDir>doc</destDir>
-				</configuration>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+		<!--<plugins>-->
+			<!--<plugin>-->
+				<!--<artifactId>maven-compiler-plugin</artifactId>-->
+				<!--<version>2.3.2</version>-->
+				<!--<configuration>-->
+					<!--<source>1.4</source>-->
+					<!--<target>1.4</target>-->
+					<!--<fork>true</fork>-->
+					<!--<compilerVersion>1.4</compilerVersion>-->
+					<!--<executable>${JAVA_1_5_HOME}/bin/javac</executable>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
+			<!--<plugin>-->
+				<!--<artifactId>maven-source-plugin</artifactId>-->
+				<!--<version>2.2</version>-->
+				<!--<executions>-->
+					<!--<execution>-->
+						<!--<id>attach-sources</id>-->
+						<!--<goals>-->
+							<!--<goal>jar</goal>-->
+						<!--</goals>-->
+					<!--</execution>-->
+				<!--</executions>-->
+			<!--</plugin>-->
+			<!--<plugin>-->
+				<!--<artifactId>maven-javadoc-plugin</artifactId>-->
+				<!--<version>2.8.1</version>-->
+				<!--<configuration>-->
+					<!--<reportOutputDirectory>.</reportOutputDirectory>-->
+					<!--<destDir>doc</destDir>-->
+				<!--</configuration>-->
+				<!--<executions>-->
+					<!--<execution>-->
+						<!--<id>attach-javadocs</id>-->
+						<!--<goals>-->
+							<!--<goal>jar</goal>-->
+						<!--</goals>-->
+					<!--</execution>-->
+				<!--</executions>-->
+			<!--</plugin>-->
+		<!--</plugins>-->
+	<!--</build>-->
 
 </project>
